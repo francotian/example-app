@@ -6,12 +6,12 @@ node {
 	}
 
 	stage('Build image') {
-		app = docker.build('francotian/example-app')		
+		app = docker.build('tianco/example-app')		
 
 	}
 
 	stage ('Push image'){
-		docker.withRegistry('https://registry.hub.docker', 'docker-cred') {
+		docker.withRegistry('https://registry.hub.docker.com', 'docker-cred') {
 			app.push('latest')
 
 		}	
