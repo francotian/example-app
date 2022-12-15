@@ -14,9 +14,12 @@ node {
 
 	stage ('Push image'){
 		docker.withRegistry('https://registry.hub.docker.com', 'docker-cred') {
-			app.push('latest')
+			app.push("${env.BRANCH_NAME}-latest")
+			app.push("${env.BRANCH_NAME}-${env.BUILD_NUMBER}")
+		
 
-		}	
+
+		}
 
 	}
 }
