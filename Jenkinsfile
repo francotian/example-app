@@ -11,7 +11,7 @@ node {
 	}
 
 	stage ('Push image'){
-		docker.withRegistry('https://registry.example.com', 'docker-cred') {
+		docker.withRegistry('https://registry.hub.docker', 'docker-cred') {
 			app.push('latest')
 
 		}	
